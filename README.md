@@ -16,12 +16,6 @@ The code implements a multi-angle line detection algorithm that applies directio
 - Visualization of detection results with color-coding by line orientation
 - Complete implementation of the linear feature detection portion of Figure 1 from Mannstein et al. (1999)
 
-## Usage
-
-```python
-python contrail_detector.py path/to/image.jpg
-```
-
 ## Requirements
 
 - numpy
@@ -29,13 +23,5 @@ python contrail_detector.py path/to/image.jpg
 - scipy
 - opencv-python
 - scikit-image
-
-## Example Output
-
-The detector produces visualizations showing:
-- Original and preprocessed images
-- Response strength at each analyzed angle
-- Combined detection results with orientation color-coding
-- Binary detection mask overlaid on the original image
 
 This demo is intended for educational purposes to showcase the effectiveness of directional convolution kernels in identifying linear features in cloud imagery.

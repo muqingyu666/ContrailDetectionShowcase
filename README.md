@@ -1,20 +1,43 @@
 # Contrail Detection Demo
 
-This project demonstrates the detection of linear contrail features in satellite cloud imagery using directional line convolution kernels, based on the methodology described in:
+This repository demonstrates a simple approach for detecting linear contrails in satellite cloud imagery.  
+It relies on directional convolution kernels similar to those described in
+Mannstein, H., Meyer, R., & Wendling, P. (1999) *International Journal of Remote Sensing*.
 
-Mannstein, H., Meyer, R., & Wendling, P. (1999). Operational detection of contrails from NOAA-AVHRR-data. *International Journal of Remote Sensing*, *20*(8), 1641–1660. https://doi.org/10.1080/014311699212650
+![Example Image](contrail_showcase_1.png)
 
 ## Overview
 
-The code implements a multi-angle line detection algorithm that applies directional convolution kernels to identify linear features in cloud imagery. This approach is particularly effective for detecting contrails (condensation trails) left by aircraft in satellite imagery.
+The code implements a multi-angle line detection algorithm that applies
+directional convolution kernels to highlight linear features at different
+orientations.  The demo can be run interactively via the provided notebook or as a
+small Python script.
 
 ## Features
 
-- Preprocessing of cloud imagery to enhance linear features
-- Creation of directional line kernels at multiple angles (0°, 15°, 30°, 45°, etc.)
-- Multi-angle convolution detection to identify linear features at various orientations
-- Visualization of detection results with color-coding by line orientation
-- Complete implementation of the linear feature detection portion of Figure 1 from Mannstein et al. (1999)
+- Preprocess imagery with CLAHE and Gaussian blur
+- Generate line kernels for many angles (0° – 165°)
+- Combine responses from all angles to obtain a binary detection mask
+- Visualise detections with an angle-coloured overlay
+
+## Running the Demo
+
+### Notebook
+
+Open `muqy_20250310_contrail_course_detection_test.ipynb` in Jupyter and run
+all cells.  The notebook shows each step of the algorithm and produces overlay
+figures.
+
+### Script
+
+For a quick run you can execute:
+
+```bash
+python demo.py --show
+```
+
+This processes `contrail_showcase_1.png` and displays the resulting figures.
+Use `python demo.py image_path` to run on a different image.
 
 ## Requirements
 
@@ -24,4 +47,11 @@ The code implements a multi-angle line detection algorithm that applies directio
 - opencv-python
 - scikit-image
 
-This demo is intended for educational purposes to showcase the effectiveness of directional convolution kernels in identifying linear features in cloud imagery.
+Install dependencies with:
+
+```bash
+pip install -r requirements.txt
+```
+
+This repository is intended as a fun showcase of contrail detection with
+minimal code.
